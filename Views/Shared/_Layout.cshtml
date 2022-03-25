@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Seminar Management System</title>
+    <link rel="shortcut icon" href="#">
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>
+                @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "active" })
+            </li>
+            <li>
+                @Html.ActionLink("Seminar Types", "Index", "SeminarTypes")
+            </li>
+            <li>
+                @Html.ActionLink("Seminars", "Index", "Seminars")
+            </li>
+            <li>
+                @Html.ActionLink("Organizers", "Index", "Organizers")
+            </li>
+            <li>
+                @Html.ActionLink("Seminar Organizers", "Index", "SeminarOrganizers")
+            </li>
+            <li>
+                @Html.ActionLink("Attendees", "Index", "Attendees")
+            </li>
+            <li>
+                @Html.ActionLink("Registrations", "Index", "Registrations")
+            </li>
+        </ul>
+    </nav>
+    <br />
+    <div class="main-content">
+        @RenderBody()
+        <br />
+        <hr />
+    </div>
+    <br />
+    <footer class="text-center">
+        <p>&copy; @DateTime.Now.Year - Seminar Management System</p>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

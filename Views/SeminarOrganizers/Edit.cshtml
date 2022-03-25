@@ -1,0 +1,43 @@
+﻿@model SeminarManagementSystem.Models.SeminarOrganizer
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div>
+    <h1 class="text-center text-info fw-bold">Edit Seminar Organizer</h1>
+    <hr />
+</div>
+
+<div class="div-center">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Id)
+
+            <div>
+                @Html.LabelFor(model => model.SeminarId, "SeminarId")
+                    @Html.DropDownList("SeminarId", null, htmlAttributes: new { @class = "" })
+                    @Html.ValidationMessageFor(model => model.SeminarId, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                @Html.LabelFor(model => model.OrganizerId, "OrganizerId")
+                    @Html.DropDownList("OrganizerId", null, htmlAttributes: new { @class = "" })
+                    @Html.ValidationMessageFor(model => model.OrganizerId, "", new { @class = "text-danger" })
+            </div>
+            <br />
+            <div class="div-center">
+                <input type="submit" value="Save" class="button button-edit" />
+                @Html.ActionLink("Back to List", "Index", new { area = "" }, new { @class = "button button-back" })
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<SeminarManagementSystem.Models.Registration>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div>
+    <h1 class="text-center text-info fw-bold">Registrations</h1>
+    <hr />
+    @Html.ActionLink("Create New", "Create", null, new { @class = "button button-create" })
+</div>
+<br />
+<table class="table text-center">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AttendeeId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SeminarId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RegistrationDate)
+        </th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Attendee.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Seminar.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegistrationDate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "button button-edit" }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "button button-delete" })
+            </td>
+        </tr>
+    }
+</table>

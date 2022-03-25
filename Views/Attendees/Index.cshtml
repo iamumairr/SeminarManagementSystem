@@ -1,0 +1,47 @@
+﻿@model IEnumerable<SeminarManagementSystem.Models.Attendee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div>
+    <h1 class="fw-bold text-info text-center">Attendees</h1>
+    <hr />
+    @Html.ActionLink("Create New", "Create", null, new { @class = "button button-create" })
+</div>
+<br />
+<table class="table text-center">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DOB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DOB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "button button-edit" }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "button button-delete" })
+            </td>
+        </tr>
+    }
+
+</table>
+

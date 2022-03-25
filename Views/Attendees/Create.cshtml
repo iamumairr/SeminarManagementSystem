@@ -1,0 +1,47 @@
+﻿@model SeminarManagementSystem.Models.Attendee
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<div>
+    <h1 class="text-center text-info fw-bold">Create Attendee</h1>
+    <hr />
+</div>
+<br />
+<div class="div-center">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div>
+                @Html.LabelFor(model => model.Name)
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                @Html.LabelFor(model => model.DOB)
+                @Html.EditorFor(model => model.DOB)
+                @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                @Html.LabelFor(model => model.Address)
+                @Html.EditorFor(model => model.Address)
+                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+            </div>
+            <br />
+            <div class="div-center">
+                <input type="submit" value="Create" class="button button-create" />
+                @Html.ActionLink("Back to List", "Index", new { area = "" }, new { @class = "button button-back" })
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

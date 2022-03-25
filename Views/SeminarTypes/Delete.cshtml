@@ -1,0 +1,34 @@
+﻿@model SeminarManagementSystem.Models.SeminarType
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div>
+    <h1 class="text-center text-info fw-bold">Delete</h1>
+    <hr />
+    <h3 class="text-center text-warning">Are you sure you want to delete this?</h3>
+</div>
+<table class="table text-center">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TypeName)
+        </th>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(model => model.TypeName)
+        </td>
+    </tr>
+</table>
+<div class="div-center">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="div-center">
+            <input type="submit" value="Delete" class="button button-delete" /> |
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "button button-back" })
+        </div>
+    }
+</div>
